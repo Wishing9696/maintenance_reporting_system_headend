@@ -1,31 +1,48 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <div class="head">
+      <span>
+        <b>HANSONG</b>
+      </span>
     </div>
-    <router-view/>
+    <el-divider></el-divider>
+    <el-row class="menu">
+      <el-col class="menu-col" :span="3">
+        <el-menu
+          router
+          class="select-menu"
+          default-active="/"
+
+        >
+          <el-menu-item index="/upload">维修上传</el-menu-item>
+          <el-menu-item index="/table">报表</el-menu-item>
+        </el-menu>
+      </el-col>
+      <el-col class="body-col" :span="21">
+        <el-card style="margin-left:10px">
+          <router-view/>
+        </el-card>
+      </el-col>
+    </el-row>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {}
+};
+</script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.head {
+  margin-left: 10px;
+  letter-spacing: 1px;
+  font-size: 30px;
+  color: red;
 }
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.el-col {
+  height: 100%;
 }
 </style>
